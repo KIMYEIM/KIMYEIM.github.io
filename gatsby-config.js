@@ -3,9 +3,22 @@ module.exports = {
     title: `주니어 개발자의 개발 블로그`,
     description: `주니어 개발자로서의 저를 표현한 블로그입니다.`,
     author: `Yeim`,
-    siteUrl: '<https://my-website-link.com>', // 배포 후 변경 예정
+    siteUrl: 'https://kimyeim.github.io/', // 배포 후 변경 예정
   },
   plugins: [
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        policy: [{ userAgent: '*', allow: '/' }],
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-canonical-urls',
+      options: {
+        siteUrl: 'https://kimyeim.github.io/',
+        stripQueryString: true,
+      },
+    },
     {
       resolve: 'gatsby-plugin-typescript',
       options: {
@@ -13,6 +26,7 @@ module.exports = {
         allExtensions: true,
       },
     },
+    `gatsby-plugin-sitemap`,
     `gatsby-plugin-emotion`,
     `gatsby-plugin-react-helmet`,
     {
